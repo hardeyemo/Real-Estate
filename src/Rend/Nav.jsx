@@ -12,7 +12,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // Toggle menu for mobile
-  
+
   function toggleDrop() {
     setOpen(!open);
   }
@@ -70,9 +70,8 @@ const Navbar = () => {
               aria-expanded={open}
             />
             <div
-              className={`absolute right-0 mt-3 w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-20 transition-all ${
-                open ? 'block' : 'hidden'
-              }`}
+              className={`absolute right-0 mt-3 w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-20 transition-all ${open ? 'block' : 'hidden'
+                }`}
             >
               <ul className="list-none p-3">
                 <Link to='/Profile' className='p-3 hover:bg-gray-100 rounded-t-lg cursor-pointer'>Profile</Link>
@@ -84,26 +83,34 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
+      {/* Mobile Menu */}
       <div
-        className={`${
-          menuOpen ? 'block' : 'hidden'
-        } md:hidden absolute top-0 left-0 right-0 bg-[#F8FAFC] p-6 rounded-b-2xl mt-16 z-20`}
+        className={`${menuOpen ? 'block' : 'hidden'
+          } md:hidden absolute top-0 left-0 right-0 bg-[#F8FAFC] p-6 rounded-b-2xl mt-16 z-20`}
       >
-        <div className="flex flex-col items-center gap-4">
-          <Link to="/" onClick={toggleMenu} className="text-lg font-semibold">
+        <div className="flex flex-col items-center gap-2">
+          <Link to="/" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
             Home
           </Link>
-          <Link to="/Search" onClick={toggleMenu} className="text-lg font-semibold">
+          <Link to="/Search" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
             Search
           </Link>
-          <Link to="/Categ" onClick={toggleMenu} className="text-lg font-semibold">
+          <Link to="/Categ" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
             Categories
           </Link>
-          <Link to="/March" onClick={toggleMenu} className="text-lg font-semibold">
+          <Link to="/March" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
             Match
+          </Link>
+          <hr className="w-full border-t border-gray-300 my-2" />
+          <Link to="/Profile" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
+            Profile
+          </Link>
+          <Link to="/" onClick={toggleMenu} className="text-lg font-semibold text-red-500 hover:bg-gray-100 rounded px-3 py-2 transition">
+            Logout
           </Link>
         </div>
       </div>
+
     </div>
   );
 };
