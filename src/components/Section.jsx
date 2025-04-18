@@ -1,5 +1,5 @@
 import check from "../assets/check-list.png"
-import group from "../assets/group 8.png"
+import group from "../assets/Group 8.png"
 import dash from "../assets/dashboard-circle.png"
 
 

@@ -2,68 +2,59 @@
 import img1 from "../assets/Rectangle 81.png";
 import img2 from "../assets/Rectangle 87.png";
 import img3 from "../assets/Rectangle 83.png";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+// Updated with unique properties only
 const propertyData = [
-  { id: 1, name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 1, name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 1, name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 1, name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 1, name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 2, name: "Urban Oasis", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 2, name: "Urban Oasis", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 2, name: "Urban Oasis", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 3, name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
-  { id: 4, name: "Mountain Retreat", type: "Lekki, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 4, name: "Mountain Retreat", type: "Lekki, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 4, name: "Mountain Retreat", type: "Lekki, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 4, name: "Mountain Retreat", type: "Lekki, Lagos", image: img3, amount: "NGN 700k/Y" },
-  { id: 5, name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 5, name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 5, name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 5, name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
-  { id: 5, name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
+  { name: "Landmark Living", type: "Banana Island, Ikoyi, Lagos", image: img3, amount: "NGN 700k/Y" },
+  { name: "Urban Oasis", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
+  { name: "Coastal Comfort", type: "Victoria Island", image: img2, amount: "NGN 450k/Y" },
+  { name: "Mountain Retreat", type: "Lekki, Lagos", image: img3, amount: "NGN 700k/Y" },
+  { name: "Sunny Villa", type: "Lekki, Lagos", image: img1, amount: "NGN 700k/Y" },
+  // Repeat some for visual diversity if needed
 ];
 
 const SearchMe = () => {
   const [search, setSearch] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(propertyData);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const trimmedSearch = search.trim().toLowerCase();
 
-    const results = propertyData.filter(property =>
-      property.name.toLowerCase().includes(search.toLowerCase()) ||
-      property.type.toLowerCase().includes(search.toLowerCase())
-    );
-
-    setSearchResults(results);
-    setSearch('');
-  };
+    if (trimmedSearch === "") {
+      setSearchResults(propertyData);
+    } else {
+      const results = propertyData.filter(property =>
+        property.name.toLowerCase().includes(trimmedSearch) ||
+        property.type.toLowerCase().includes(trimmedSearch)
+      );
+      setSearchResults(results);
+    }
+  }, [search]);
 
   return (
     <div className="flex flex-col items-center justify-center mb-[100px] mt-[100px]">
-      <form onSubmit={handleSubmit} className="flex gap-1 items-center border border-gray-300 rounded-lg p-2 mb-6">
+      <div className="flex gap-1 items-center border border-gray-300 rounded-lg p-2 mb-6">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search for properties..."
-          className="outline-none w-[50vw] px-2 py-3 "
+          className="outline-none w-[50vw] px-2 py-3"
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-3 rounded-r-lg"> Search </button>
-      </form>
+        <button
+          type="button"
+          onClick={() => setSearch('')}
+          className="bg-gray-300 text-gray-700 px-4 py-3 rounded-r-lg"
+        >
+          Clear
+        </button>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4">
         {searchResults.length > 0 ? (
-          searchResults.map((property) => (
-            <div key={property.id} className="bg-white p-4 rounded-lg shadow-md">
+          searchResults.map((property, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md">
               <img src={property.image} alt={property.name} className="w-full h-40 object-cover rounded-md mb-2" />
               <h3 className="text-xl font-semibold mb-2">{property.name}</h3>
               <div className="flex items-center gap-10">
@@ -73,7 +64,7 @@ const SearchMe = () => {
             </div>
           ))
         ) : (
-          <p className="text-gray-600">No properties found</p>
+          <p className="text-gray-600 col-span-full">No properties found</p>
         )}
       </div>
     </div>
