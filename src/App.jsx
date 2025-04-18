@@ -9,6 +9,7 @@ import Search from "./Link/Search"
 import Forget from "./Link/Forget";
 import {ThemeContextProvider} from "./components/Context/ThemeContext"
 import Dashboard from "./Link/Dashboard"
+import Profile from './Link/Profile';
  
 function App() {
   return ( 
@@ -22,6 +23,7 @@ function App() {
                <Route path="/login" element={<Login/>}/>
                <Route path="/register" element={<Register/>}/>
                <Route path="/forget" element={<Forget/>}/>
+               <Route path="/profile" element={<Profile/>}/>
                <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,3 @@
-
 import img1 from "../assets/Rectangle 81.png";
 import img2 from "../assets/Rectangle 87.png";
 import img3 from "../assets/Rectangle 83.png";
@@ -78,26 +77,26 @@ const App = () => {
         head: "Oyo",
         location: "5,890 houses",
       },
-     
   ];
 
   return (
-    <div className="flex flex-col items-center">
-            <div className="flex flex-col mt-10">
-                <h1 className="text-2xl font-bold">Available Staets</h1>
-                <p>These are the list of all partners states</p>
+    <div className="flex flex-col items-center px-4 sm:px-6 lg:px-10">
+      <div className="flex flex-col mt-10">
+        <h1 className="text-2xl font-bold text-center">Available States</h1>
+        <p className="text-center text-gray-600">These are the list of all partner states</p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[30px] mt-10 mb-10">
+        {State.map(p => (
+          <div key={p.id} className="flex items-center gap-4 bg-[#F8FAFC] p-4 rounded-xl hover:shadow-lg transition-all cursor-pointer">
+            <img src={p.picture} alt={`Image of ${p.head}`} className="h-[60px] w-[80px] object-cover rounded-md" />
+            <div className="flex flex-col">
+              <h1 className="font-bold text-lg">{p.head}</h1>
+              <p className="text-gray-600">{p.location}</p>
             </div>
-        <div className='grid grid-cols-4 w-[70%] gap-[50px] mt-10 mb-10'>
-      {State.map(p => (
-        <div key={p.id} className='flex items-center gap-4 bg-[#F8FAFC] p-2 rounded-xl'>
-                <img src={p.picture} alt={`Image of ${p.head}`} className="cursor-pointer h-[50px] w-[60px]"/>
-                <div className="flex flex-col">
-                    <h1 className="font-bold cursor-pointer">{p.head}</h1>
-                    <p>{p.location}</p>
-                </div>
-        </div>
-      ))}
-    </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

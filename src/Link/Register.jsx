@@ -5,9 +5,9 @@ import Signup from '../Link/Signup';
 const Register = () => {
   return (
     <div>
-        <Nav />
+      <Nav />
       <Signup />
-    <Footer />
+      <Footer />
     </div>
   )
 }

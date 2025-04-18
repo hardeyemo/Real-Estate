@@ -7,10 +7,10 @@ import { useContext } from 'react';
 import { ThemeContext } from '../components/Context/ThemeContext';
 
 const Home = () => {
-  const {themeColor, textColor} = useContext(ThemeContext)
+  const { themeColor, textColor } = useContext(ThemeContext)
   return (
-    
-    <div style={{backgroundColor: themeColor, color: textColor}}>
+
+    <div style={{ backgroundColor: themeColor, color: textColor }}>
       <Nav />
       <Hero />
       <Section />
