@@ -35,7 +35,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <Link
-                            to="/dashboard/overview"
+                            to="/Dashboard"
                             className="block py-2 px-4 hover:bg-[#ebeced] hover:text-black rounded"
                         >
                             Overview
@@ -43,7 +43,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <Link
-                            to="/dashboard/properties"
+                            to=""
                             className="block py-2 px-4 hover:bg-[#ebeced] hover:text-black rounded"
                         >
                             Properties
@@ -51,7 +51,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <Link
-                            to="/dashboard/reservations"
+                            to="/Dashboard"
                             className="block py-2 px-4 hover:bg-[#ebeced] hover:text-black rounded"
                         >
                             Reservations
@@ -59,7 +59,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <Link
-                            to="/dashboard/reports"
+                            to="/Dashboard"
                             className="block py-2 px-4 hover:bg-[#ebeced] hover:text-black rounded"
                         >
                             Reports
@@ -67,7 +67,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <Link
-                            to="/dashboard/settings"
+                            to="/Dashboard"
                             className="block py-2 px-4 hover:bg-[#ebeced] hover:text-black rounded"
                         >
                             Settings
@@ -81,7 +81,6 @@ const Dashboard = () => {
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-3xl font-semibold">Dashboard Overview</h2>
                     <button
-                        onClick={() => setShowAddModal(true)}
                         className="bg-blue-500 text-white px-4 py-2 rounded"
                     >
                         Add New Property

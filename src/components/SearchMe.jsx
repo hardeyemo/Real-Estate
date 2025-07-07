@@ -82,7 +82,7 @@ const SearchMe = () => {
   const handleClear = () => setSearch('');
 
   return (
-    <div className="flex flex-col items-center justify-center mb-[100px] mt-[100px]">
+    <div className="flex flex-col items-center justify-center mb-[100px] mt-[100px] max-sm:mt-5">
       <div className="flex flex-col lg:flex-row gap-4 items-center mb-6 w-full px-4 lg:px-0 justify-center">
         <div className="flex gap-1 border border-gray-300 rounded-lg p-2 w-full lg:w-[50vw]">
           <input

@@ -6,10 +6,10 @@ import March from './Link/March';
 import Login from "./Link/Login";
 import Register from "./Link/Register";
 import Search from "./Link/Search"
+import Profile from './Link/Profile';
 import Forget from "./Link/Forget";
 import {ThemeContextProvider} from "./components/Context/ThemeContext"
 import Dashboard from "./Link/Dashboard"
-import Profile from './Link/Profile';
  
 function App() {
   return ( 

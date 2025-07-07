@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+import pro from "../assets/35827.png"
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -43,8 +45,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-3 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Profile Settings</h2>
+    <div className="max-w-3xl mx-auto mt-2 p-6 bg-white rounded-lg shadow-md">
+      <div className="flex items-center justify-between gap-2">
+        <Link to="/"><img className="h-5" src={pro} alt="" /></Link>
+        <h2 className="text-2xl font-bold mb-6">Profile Settings</h2>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="flex flex-col items-center gap-3">

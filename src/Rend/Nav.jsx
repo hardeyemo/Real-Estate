@@ -75,7 +75,7 @@ const Navbar = () => {
             >
               <ul className="list-none p-3">
                 <Link to='/Profile' className='p-3 hover:bg-gray-100 rounded-t-lg cursor-pointer'>Profile</Link>
-                <Link to='/' className='p-3 hover:bg-gray-100 rounded-t-lg cursor-pointer'>Logout</Link>
+                <Link to='/Register' className='p-3 hover:bg-gray-100 rounded-t-lg cursor-pointer'>Logout</Link>
               </ul>
             </div>
           </div>
