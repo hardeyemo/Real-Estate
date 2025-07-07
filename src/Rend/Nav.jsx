@@ -86,7 +86,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`${menuOpen ? 'block' : 'hidden'
-          } md:hidden absolute top-0 left-0 right-0 bg-[#F8FAFC] p-6 rounded-b-2xl mt-16 z-20`}
+          } md:hidden absolute top-0 left-0 right-0 bg-[#cbcfd4] p-6 rounded-b-2xl mt-16 z-20`}
       >
         <div className="flex flex-col items-center gap-2">
           <Link to="/" onClick={toggleMenu} className="text-lg font-semibold hover:bg-gray-100 rounded px-3 py-2 transition">
